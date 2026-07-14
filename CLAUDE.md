@@ -18,6 +18,7 @@ Use the Task tool with these specialized subagents for appropriate tasks:
 
 ### Skills
 - **backend-api-test** skill: Use when writing or modifying tests in `tests/backend` directory with pytest and FastAPI TestClient
+- **ui-saas-redesign** skill: Use when redesigning the client UI shell, navigation, or styling into the SaaS sidebar layout
 
 ### MCP Tools
 - **ALWAYS use GitHub MCP tools** (`mcp__github__*`) for ALL GitHub operations
@@ -61,6 +62,9 @@ npm install && npm run dev
 3. Update Pydantic models when changing JSON data structure
 4. Inventory filters don't support month (no time dimension)
 5. Revenue goals: $800K/month single, $9.6M YTD all months
+
+## Code Style
+- Always document non-obvious logic changes with comments
 
 ## File Locations
 - Views: `client/src/views/*.vue`

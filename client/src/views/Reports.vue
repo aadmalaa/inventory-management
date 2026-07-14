@@ -321,50 +321,12 @@ export default {
   padding: 0;
 }
 
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.card-header {
-  margin-bottom: 1.5rem;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #0f172a;
-  margin: 0;
-}
-
-.reports-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.reports-table th {
-  background: #f8fafc;
-  padding: 0.75rem;
-  text-align: left;
-  font-weight: 600;
-  color: #64748b;
-  border-bottom: 2px solid #e2e8f0;
-}
-
-.reports-table td {
-  padding: 0.75rem;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.reports-table tr:hover {
-  background: #f8fafc;
-}
+/* .card, .card-header, .card-title, the table th/td styling, .badge,
+   .loading and .error now come from the global tokenized rules in App.vue;
+   their stale local copies were removed. */
 
 .chart-container {
-  padding: 2rem 1rem;
+  padding: var(--space-6) var(--space-4);
   min-height: 300px;
 }
 
@@ -373,7 +335,7 @@ export default {
   align-items: flex-end;
   justify-content: space-around;
   height: 250px;
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 
 .bar-wrapper {
@@ -404,85 +366,33 @@ export default {
 }
 
 .bar-label {
-  margin-top: 0.5rem;
+  /* was declared twice (0.5rem then a winning 1.5rem); kept the winner, on the scale */
+  margin-top: var(--space-5);
   font-size: 0.75rem;
-  color: #64748b;
+  color: var(--color-text-muted);
   text-align: center;
   transform: rotate(-45deg);
   white-space: nowrap;
-  margin-top: 1.5rem;
 }
 
+/* variant: this grid sits below a chart card, so it needs a top margin;
+   columns/gap now come from the global .stats-grid */
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: var(--space-5);
 }
 
+/* variant: KPI accent bar (blue-500 chart accent has no token equivalent) */
 .stat-card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border-left: 4px solid #3b82f6;
 }
 
-.stat-label {
-  font-size: 0.875rem;
-  color: #64748b;
-  margin-bottom: 0.5rem;
-}
-
-.stat-value {
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: #0f172a;
-}
-
-.badge {
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.badge.success {
-  background: #dcfce7;
-  color: #166534;
-}
-
-.badge.warning {
-  background: #fef3c7;
-  color: #92400e;
-}
-
-.badge.danger {
-  background: #fee2e2;
-  color: #991b1b;
-}
-
 .positive-change {
-  color: #16a34a;
+  color: #16a34a; /* green-600 - no token equivalent */
   font-weight: 600;
 }
 
 .negative-change {
-  color: #dc2626;
+  color: var(--color-danger);
   font-weight: 600;
-}
-
-.loading {
-  text-align: center;
-  padding: 3rem;
-  color: #64748b;
-}
-
-.error {
-  background: #fee2e2;
-  color: #991b1b;
-  padding: 1rem;
-  border-radius: 8px;
-  margin: 1rem 0;
 }
 </style>

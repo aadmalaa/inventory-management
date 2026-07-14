@@ -102,28 +102,37 @@ export default {
 
 <style scoped>
 .filters-bar {
-  background: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 0.75rem 0;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-3) 0;
   position: sticky;
-  top: 70px;
-  z-index: 90;
+  top: 0; /* was 70px: matched the removed top nav's height; FilterBar is now the first sticky element */
+  z-index: 90; /* below sidebar (100) */
 }
 
 .filters-container {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--space-6); /* horizontal padding aligned with .main-content */
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
 .filters-grid {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-4);
   flex: 1;
+}
+
+/* Below 1024px the sidebar collapses to a 64px icon rail; let the four
+   filters wrap onto multiple rows instead of overflowing the content column */
+@media (max-width: 1023px) {
+  .filters-container,
+  .filters-grid {
+    flex-wrap: wrap;
+  }
 }
 
 .filter-group {
