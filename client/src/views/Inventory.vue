@@ -225,33 +225,13 @@ export default {
 </script>
 
 <style scoped>
-.page-header {
-  margin-bottom: 1.5rem;
-}
-
-.page-header h2 {
-  margin-bottom: 0.25rem;
-}
-
-.page-header p {
-  color: #64748b;
-  font-size: 0.875rem;
-}
-
+/* .page-header, .card-title and the .card-header layout now come from the
+   global tokenized styles in App.vue. Only the gap survives here: it keeps a
+   long card title from colliding with the search box. The old local padding
+   was dropped because the global .card already provides --space-5 padding
+   (keeping it would double-pad the header). */
 .card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.card-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #0f172a;
-  margin: 0;
+  gap: var(--space-5);
 }
 
 .search-box {
@@ -263,28 +243,29 @@ export default {
 
 .search-icon {
   position: absolute;
-  left: 0.75rem;
+  left: var(--space-3);
   width: 18px;
   height: 18px;
-  color: #94a3b8;
+  color: #94a3b8; /* slate-400 placeholder tone - no token equivalent */
   pointer-events: none;
 }
 
 .search-input {
   width: 100%;
-  padding: 0.5rem 2.5rem 0.5rem 2.5rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
+  /* 2.5rem horizontal padding is off-scale on purpose: 12px inset + 18px icon clearance */
+  padding: var(--space-2) 2.5rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
   font-size: 0.875rem;
-  color: #0f172a;
-  background: #f8fafc;
+  color: var(--color-text);
+  background: var(--color-bg);
   transition: all 0.2s;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #3b82f6;
-  background: white;
+  border-color: #3b82f6; /* pairs with the rgba focus ring below - no token equivalent */
+  background: var(--color-surface);
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
@@ -294,11 +275,11 @@ export default {
 
 .clear-search {
   position: absolute;
-  right: 0.5rem;
+  right: var(--space-2);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.25rem;
+  padding: var(--space-1);
   background: transparent;
   border: none;
   border-radius: 4px;
@@ -308,8 +289,8 @@ export default {
 }
 
 .clear-search:hover {
-  background: #e2e8f0;
-  color: #64748b;
+  background: var(--color-border); /* #e2e8f0: border token doubles as the subtle hover fill */
+  color: var(--color-text-muted);
 }
 
 .clear-search svg {
@@ -317,16 +298,7 @@ export default {
   height: 18px;
 }
 
-.loading,
-.error {
-  padding: 2rem;
-  text-align: center;
-  color: #64748b;
-}
-
-.error {
-  color: #ef4444;
-}
+/* .loading and .error now come from the global tokenized rules in App.vue */
 
 .clickable-row {
   cursor: pointer;
@@ -334,6 +306,6 @@ export default {
 }
 
 .clickable-row:hover {
-  background: #eff6ff !important;
+  background: var(--color-primary-soft) !important;
 }
 </style>

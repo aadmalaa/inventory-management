@@ -121,21 +121,26 @@ const handleLogout = () => {
 }
 
 .profile-button {
+  width: 100%; /* fill the sidebar footer so the trigger doesn't look orphaned */
   display: flex;
   align-items: center;
   gap: 0.625rem;
-  padding: 0.5rem 0.875rem;
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all 0.2s ease;
   font-family: inherit;
 }
 
 .profile-button:hover {
-  background: #f8fafc;
-  border-color: #cbd5e1;
+  background: var(--color-bg);
+  border-color: var(--color-border-strong);
+}
+
+.profile-button .chevron {
+  margin-left: auto; /* pin chevron to the right edge of the full-width trigger */
 }
 
 .avatar {
@@ -169,14 +174,19 @@ const handleLogout = () => {
 
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
-  min-width: 280px;
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
+  top: auto;                           /* was: calc(100% + 0.5rem) - opened downward under the top nav */
+  bottom: calc(100% + var(--space-2)); /* opens upward: trigger now sits at the bottom of the sidebar */
+  left: 0;                             /* was: right: 0 - anchored to the nav's right edge */
+  right: auto;
+  /* anchored left:0 the menu extends rightward past the 240px sidebar over the
+     content area; cap width so it never clips on narrow viewports */
+  min-width: 260px;
+  max-width: calc(100vw - var(--space-4));
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  z-index: 1000; /* above the sidebar (100) */
   overflow: hidden;
 }
 

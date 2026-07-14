@@ -1,0 +1,16 @@
+[
+  {
+    "id": 101,
+    "title": "Follow up with supplier on delayed circuit board shipment",
+    "priority": "high",
+    "dueDate": "2025-10-09",
+    "status": "pending"
+  },
+  {
+    "id": 102,
+    "title": "Schedule cycle count for Warehouse C",
+    "priority": "low",
+    "dueDate": "2025-10-20",
+    "status": "pending"
+  }
+]

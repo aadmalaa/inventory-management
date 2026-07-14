@@ -6,6 +6,7 @@ export default {
     orders: 'Orders',
     finance: 'Finance',
     demandForecast: 'Demand Forecast',
+    reports: 'Reports',
     companyName: 'Catalyst Components',
     subtitle: 'Inventory Management System'
   },
@@ -302,6 +303,35 @@ export default {
     dueDate: 'Due Date',
     addTask: 'Add Task',
     noTasks: 'No tasks yet. Add your first task above!'
+  },
+
+  // Purchase Order Modal
+  purchaseOrder: {
+    createTitle: 'Create Purchase Order',
+    viewTitle: 'Purchase Order Details',
+    orderId: 'Order ID',
+    sku: 'SKU',
+    itemName: 'Item Name',
+    shortage: 'Shortage',
+    unitsShort: 'units short',
+    supplierName: 'Supplier Name',
+    supplierNamePlaceholder: 'Enter supplier name...',
+    quantity: 'Quantity',
+    unitCost: 'Unit Cost',
+    expectedDeliveryDate: 'Expected Delivery Date',
+    notes: 'Notes',
+    notesPlaceholder: 'Optional notes...',
+    submit: 'Create Purchase Order',
+    submitting: 'Creating...',
+    cancel: 'Cancel',
+    createError: 'Failed to create purchase order. Please try again.',
+    loadError: 'Failed to load purchase order details.',
+    loading: 'Loading purchase order...',
+    status: 'Status',
+    createdDate: 'Created Date',
+    total: 'Total',
+    poId: 'Purchase Order ID',
+    supplier: 'Supplier'
   },
 
   // Language
